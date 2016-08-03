@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Existencia de productos</h1>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.product.nombre %></td>
+        <td><%= stock.cantidad %></td>
+        <td><%= link_to 'Show', stock %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

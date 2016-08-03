@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Matricula:</strong>
+  <%= @student.matricula %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @student.nombre %>
+</p>
+
+<p>
+  <strong>Paterno:</strong>
+  <%= @student.paterno %>
+</p>
+
+<p>
+  <strong>Materno:</strong>
+  <%= @student.materno %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= image_tag @student.imagen.thumb.url %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

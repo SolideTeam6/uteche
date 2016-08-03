@@ -1,0 +1,25 @@
+<%= form_for(@deposito) do |f| %>
+  <% if @deposito.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deposito.errors.count, "error") %> prohibited this deposito from being saved:</h2>
+
+      <ul>
+      <% @deposito.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= f.label 'Alumno' %><br><%= collection_select(:deposito,:student_id, @students, :id, :nombre, {prompt: false}) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.text_field :cantidad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

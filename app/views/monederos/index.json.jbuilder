@@ -1,0 +1,1 @@
+json.array! @monederos, partial: 'monederos/monedero', as: :monedero

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ultimas Recepciones</h1>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @update_stocks.each do |update_stock| %>
+      <tr>
+        <td><%= update_stock.product.nombre %></td>
+        <td><%= update_stock.cantidad %></td>
+        <td><%= link_to 'Show', update_stock %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Update stock', new_update_stock_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alumnos</h1>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Matricula</th>
+      <th>Nombre</th>
+      <th>Paterno</th>
+      <th>Materno</th>
+      <th>Imagen</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.matricula %></td>
+        <td><%= student.nombre %></td>
+        <td><%= student.paterno %></td>
+        <td><%= student.materno %></td>
+        <td><%= image_tag student.imagen.thumb.url %></td>
+        <td><%= link_to 'Show', student,class:"btn btn-raised btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_student_path(student),class:"btn btn-raised btn-info" %></td>
+        <td><%= link_to 'Destroy', student,class:"btn btn-raised btn-warning", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student', new_student_path %>

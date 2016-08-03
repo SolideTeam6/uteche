@@ -1,0 +1,1 @@
+json.partial! "update_stocks/update_stock", update_stock: @update_stock

@@ -1,0 +1,24 @@
+<%= form_for(@update_stock) do |f| %>
+  <% if @update_stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@update_stock.errors.count, "error") %> prohibited this update_stock from being saved:</h2>
+
+      <ul>
+      <% @update_stock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'Producto' %><br><%= collection_select(:update_stock,:product_id, @products, :id, :nombre, {prompt: false,class:"col-md-2 control-label"}) %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.number_field :cantidad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

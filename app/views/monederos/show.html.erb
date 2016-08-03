@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @monedero.student.nombre %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @monedero.cantidad %>
+</p>
+
+<%= link_to 'Edit', edit_monedero_path(@monedero) %> |
+<%= link_to 'Back', monederos_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Monederos</h1>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Cantidad</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monederos.each do |monedero| %>
+      <tr>
+        <td><%= monedero.student.nombre %></td>
+        <td><%= monedero.cantidad %></td>
+        <td><%= link_to 'Show', monedero %></td>
+        <td><%= link_to 'Edit', edit_monedero_path(monedero) %></td>
+        <td><%= link_to 'Destroy', monedero, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monedero', new_monedero_path %>
