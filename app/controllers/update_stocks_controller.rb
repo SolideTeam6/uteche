@@ -1,6 +1,6 @@
 class UpdateStocksController < ApplicationController
   before_action :set_update_stock, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /update_stocks
   # GET /update_stocks.json
   def index

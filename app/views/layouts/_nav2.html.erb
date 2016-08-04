@@ -1,0 +1,36 @@
+<div class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <% if alumno_signed_in? %>
+                <%= link_to 'ProtoType',alumno_root_path, class:"navbar-brand"  %>
+            <% else %>
+                <%= link_to 'ProtoType',root_path, class:"navbar-brand"  %>
+            <% end %>
+        </div>
+
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if alumno_signed_in? %>
+                        <li class="dropdown">
+                            <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_alumno.email %>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><%= link_to 'Edit profile', edit_alumno_registration_path, :class => 'navbar-link' %></li>
+                                <li><%= link_to "Logout", destroy_alumno_session_path, method: :delete, :class => 'navbar-link'  %></li>
+                            </ul>
+                        </li>
+                        <% else %>
+                            <li ><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+                            <li ><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+                            <li ><%= link_to "Acceso Alumnos", new_alumno_session_path, :class => 'navbar-link'  %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>

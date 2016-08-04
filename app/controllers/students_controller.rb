@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
     before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+    before_action :authenticate_user!
     # GET /students
     # GET /students.json
     def index
@@ -32,6 +32,13 @@ class StudentsController < ApplicationController
                 @monedero.student = @student
                 @monedero.cantidad = 0
                 @monedero.save
+
+                @alumno = Alumno.new
+                @alumno.email = @student.matricula + '@mail.com'
+                @alumno.password = 'password'
+                @alumno.student = @student
+                @alumno.save
+
                 format.html { redirect_to @student, notice: 'Student was successfully created.' }
                 format.json { render :show, status: :created, location: @student }
             else
@@ -59,9 +66,13 @@ class StudentsController < ApplicationController
     # DELETE /students/1.json
     def destroy
         @monedero = Monedero.find_by(student:@student)
-        @monedero.destroy
+        if @monedero = nil
+            @monedero.destroy
+        end
         @deposito = Deposito.find_by(student:@student)
-        @deposito.destroy
+        if @deposito = nil
+            @deposito.destroy
+        end
         @student.destroy
         respond_to do |format|
             format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }

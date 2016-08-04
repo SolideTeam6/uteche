@@ -1,6 +1,6 @@
 class DepositosController < ApplicationController
     before_action :set_deposito, only: [:show, :edit, :update, :destroy]
-
+    before_action :authenticate_user!
     # GET /depositos
     # GET /depositos.json
     def index

@@ -7,7 +7,14 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= render 'layouts/nav'%>
+    <% if user_signed_in? %>
+        <%= render 'layouts/nav'%>
+    <% elsif alumno_signed_in? %>
+        <%= render 'layouts/nav2'%>
+    <% else %>
+        <%= render 'layouts/nav'%>
+    <% end %>
+
 
     <%= yield %>
 

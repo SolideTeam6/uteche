@@ -1,6 +1,6 @@
 class MonederosController < ApplicationController
   before_action :set_monedero, only: [:show, :edit, :update, :destroy]
-
+ before_action :authenticate_user!
   # GET /monederos
   # GET /monederos.json
   def index

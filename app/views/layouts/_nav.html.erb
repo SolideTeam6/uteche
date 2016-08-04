@@ -6,7 +6,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <%= link_to 'ProtoType',root_path, class:"navbar-brand"  %>
+            <% if user_signed_in? %>
+                <%= link_to 'ProtoType 1',user_root_path, class:"navbar-brand"  %>
+            <% else %>
+                <%= link_to 'ProtoType 3',root_path, class:"navbar-brand"  %>
+            <% end %>
         </div>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -48,8 +52,9 @@
                             </ul>
                         </li>
                         <% else %>
-                        <li ><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
-                        <li ><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+                            <li ><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+                            <li ><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+                            <li ><%= link_to "Acceso Alumnos", new_alumno_session_path, :class => 'navbar-link'  %></li>
                         <% end %>
                     </ul>
                 </div>

@@ -1,6 +1,6 @@
 class VentaController < ApplicationController
     before_action :set_ventum, only: [:show, :edit, :update, :destroy]
-
+before_action :authenticate_user!
     # GET /venta
     # GET /venta.json
     def index
