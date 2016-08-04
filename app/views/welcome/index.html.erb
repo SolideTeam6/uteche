@@ -51,7 +51,7 @@
 
 <% elsif alumno_signed_in? %>
 <div class="jumbotron">
-    <%= image_tag current_alumno.student.imagen.url %>
+    <%= image_tag current_alumno.student.imagen.url,width: '200px',height: '200px' %>
     <h3><%= current_alumno.student.nombre%> <%= current_alumno.student.paterno%><%= current_alumno.student.materno%></h3>
     <h3>Matricula:<%= current_alumno.student.matricula %></h3>
 
@@ -71,14 +71,14 @@
         </thead>
 
         <tbody>
-            <% Ventum.find_by(student: current_alumno.student) do |ventum| %>
-            <tr>
-                <td><%= ventum.student.nombre %></td>
-                <td><%= ventum.product.nombre %></td>
-                <td><%= ventum.cantidad %></td>
-                <td><%= ventum.cantidad*ventum.product.precio %></td>
-            </tr>
-            <% end %>
+                <% @venta.where(student: current_alumno.student).each do |ventum| %>
+                <tr>
+                    <td><%= ventum.student.nombre %></td>
+                    <td><%= ventum.product.nombre %></td>
+                    <td><%= ventum.cantidad %></td>
+                    <td><%= ventum.cantidad*ventum.product.precio %></td>
+                </tr>
+                <% end %>
         </tbody>
     </table>
 
@@ -94,7 +94,7 @@
         </thead>
 
         <tbody>
-            <% Deposito.where(student_id: current_alumno.student) do |deposito| %>
+            <% @deposito.where(student: current_alumno.student).each do |deposito| %>
             <tr>
                 <td><%= deposito.student.nombre %></td>
                 <td><%= deposito.cantidad %></td>
