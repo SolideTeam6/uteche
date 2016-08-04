@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803222630) do
+ActiveRecord::Schema.define(version: 20160803235200) do
 
   create_table "depositos", force: :cascade do |t|
     t.integer  "student_id"
@@ -85,5 +85,16 @@ ActiveRecord::Schema.define(version: 20160803222630) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "venta", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "product_id"
+    t.integer  "cantidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "venta", ["product_id"], name: "index_venta_on_product_id"
+  add_index "venta", ["student_id"], name: "index_venta_on_student_id"
 
 end

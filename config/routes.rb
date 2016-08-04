@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :venta
   devise_for :users
   resources :depositos
   resources :monederos

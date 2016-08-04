@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @ventum.student.nombre %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @ventum.product.nombre %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @ventum.cantidad %>
+</p>
+
+<p>
+  <strong>TOTAL:</strong>
+  <%= @ventum.cantidad*@ventum.product.precio %>
+</p>
+
+
+<%= link_to 'Back', venta_path %>
